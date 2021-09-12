@@ -1,0 +1,327 @@
+{
+   "name": "fortiManager",
+   "author": "z1pti3",
+   "version": 0.1,
+   "categories": [],
+   "description": "FortiManager API objects for jimi",
+   "icon": null,
+   "requirements": {
+      "jimi_min_version": null,
+      "jimi_max_version": null,
+      "plugins": []
+   },
+   "collections": {},
+   "triggers": {},
+   "actions": {
+      "fortiManagerConnect": {
+         "display_name": "fortiManagerConnect",
+         "className": "_fortiManagerConnect",
+         "class_location": "models.action",
+         "description": "",
+         "fields": [
+            {
+               "schema_item": "host",
+               "schema_value": "host",
+               "type": "input",
+               "label": "host",
+               "description": ""
+            },
+            {
+               "schema_item": "username",
+               "schema_value": "username",
+               "type": "input",
+               "label": "username",
+               "description": ""
+            },
+            {
+               "schema_item": "password",
+               "schema_value": "password",
+               "type": "input",
+               "label": "password",
+               "description": ""
+            },
+            {
+               "schema_item": "protocol",
+               "schema_value": "protocol",
+               "type": "input",
+               "label": "protocol",
+               "description": ""
+            },
+            {
+               "schema_item": "adom",
+               "schema_value": "adom",
+               "type": "input",
+               "label": "adom",
+               "description": ""
+            },
+            {
+               "schema_item": "certificate_verify",
+               "schema_value": "certificate_verify",
+               "type": "checkbox",
+               "label": "certificate_verify",
+               "description": ""
+            }
+         ],
+         "data_out": {
+            "result": {
+               "description": "Returns True when successful.",
+               "type": "boolean",
+               "always_present": true,
+               "values": {
+                  "True": {
+                     "description": "Successful."
+                  },
+                  "False": {
+                     "description": "Failure."
+                  }
+               }
+            },
+            "rc": {
+               "description": "Returns the exit code for the action.",
+               "type": "number",
+               "always_present": true,
+               "values": {
+                  "200": {
+                     "description": "Successful."
+                  }
+               }
+            }
+         }
+      },
+      "fortiManagerGetADOMS": {
+         "display_name": "fortiManagerGetADOMS",
+         "className": "_fortiManagerGetADOMS",
+         "class_location": "models.action",
+         "description": "",
+         "fields": [],
+         "data_out": {
+            "result": {
+               "description": "Returns True when successful.",
+               "type": "boolean",
+               "always_present": true,
+               "values": {
+                  "True": {
+                     "description": "Successful."
+                  },
+                  "False": {
+                     "description": "Failure."
+                  }
+               }
+            },
+            "rc": {
+               "description": "Returns the exit code for the action.",
+               "type": "number",
+               "always_present": true,
+               "values": {
+                  "200": {
+                     "description": "Successful."
+                  }
+               }
+            },
+            "adoms": {
+               "description": "Returns a list of adoms.",
+               "type": "json",
+               "always_present": true,
+               "values": {
+               }
+            }
+         }
+      },
+      "fortiManagerSetADOMS": {
+         "display_name": "fortiManagerSetADOMS",
+         "className": "_fortiManagerSetADOMS",
+         "class_location": "models.action",
+         "description": "",
+         "fields": [
+            {
+               "schema_item": "adom",
+               "schema_value": "adom",
+               "type": "input",
+               "label": "adom",
+               "description": ""
+            }
+         ],
+         "data_out": {
+            "result": {
+               "description": "Returns True when successful.",
+               "type": "boolean",
+               "always_present": true,
+               "values": {
+                  "True": {
+                     "description": "Successful."
+                  },
+                  "False": {
+                     "description": "Failure."
+                  }
+               }
+            },
+            "rc": {
+               "description": "Returns the exit code for the action.",
+               "type": "number",
+               "always_present": true,
+               "values": {
+                  "200": {
+                     "description": "Successful."
+                  }
+               }
+            }
+         }
+      },
+      "fortiManagerGetObjects": {
+         "display_name": "fortiManagerGetObjects",
+         "className": "_fortiManagerGetObjects",
+         "class_location": "models.action",
+         "description": "",
+         "fields": [
+            {
+               "schema_item": "objectType",
+               "schema_value": "objectType",
+               "type": "input",
+               "label": "objectType",
+               "description": ""
+            }
+         ],
+         "data_out": {
+            "result": {
+               "description": "Returns True when successful.",
+               "type": "boolean",
+               "always_present": true,
+               "values": {
+                  "True": {
+                     "description": "Successful."
+                  },
+                  "False": {
+                     "description": "Failure."
+                  }
+               }
+            },
+            "rc": {
+               "description": "Returns the exit code for the action.",
+               "type": "number",
+               "always_present": true,
+               "values": {
+                  "200": {
+                     "description": "Successful."
+                  }
+               }
+            },
+            "objects": {
+               "description": "Returns a list of objects.",
+               "type": "json",
+               "always_present": true,
+               "values": {
+               }
+            }
+         }
+      },
+      "fortiManagerGetObject": {
+         "display_name": "fortiManagerGetObject",
+         "className": "_fortiManagerGetObject",
+         "class_location": "models.action",
+         "description": "",
+         "fields": [
+            {
+               "schema_item": "objectType",
+               "schema_value": "objectType",
+               "type": "input",
+               "label": "objectType",
+               "description": ""
+            },
+            {
+               "schema_item": "objectName",
+               "schema_value": "objectName",
+               "type": "input",
+               "label": "objectName",
+               "description": ""
+            }
+         ],
+         "data_out": {
+            "result": {
+               "description": "Returns True when successful.",
+               "type": "boolean",
+               "always_present": true,
+               "values": {
+                  "True": {
+                     "description": "Successful."
+                  },
+                  "False": {
+                     "description": "Failure."
+                  }
+               }
+            },
+            "rc": {
+               "description": "Returns the exit code for the action.",
+               "type": "number",
+               "always_present": true,
+               "values": {
+                  "0": {
+                     "description": "Successful."
+                  }
+               }
+            },
+            "object": {
+               "description": "Returns the objects data.",
+               "type": "json",
+               "always_present": true,
+               "values": {
+               }
+            }
+         }
+      },
+      "fortiManagerSetObject": {
+         "display_name": "fortiManagerSetObject",
+         "className": "_fortiManagerSetObject",
+         "class_location": "models.action",
+         "description": "",
+         "fields": [
+            {
+               "schema_item": "objectType",
+               "schema_value": "objectType",
+               "type": "input",
+               "label": "objectType",
+               "description": ""
+            },
+            {
+               "schema_item": "objectName",
+               "schema_value": "objectName",
+               "type": "input",
+               "label": "objectName",
+               "description": ""
+            },
+            {
+               "schema_item": "objectData",
+               "schema_value": "objectData",
+               "type": "json-input",
+               "label": "objectData",
+               "description": ""
+            }
+         ],
+         "data_out": {
+            "result": {
+               "description": "Returns True when successful.",
+               "type": "boolean",
+               "always_present": true,
+               "values": {
+                  "True": {
+                     "description": "Successful."
+                  },
+                  "False": {
+                     "description": "Failure."
+                  }
+               }
+            },
+            "rc": {
+               "description": "Returns the exit code for the action.",
+               "type": "number",
+               "always_present": true,
+               "values": {
+                  "0": {
+                     "description": ""
+                  }
+               }
+            }
+         }
+      }
+   },
+   "settings": {}
+}
