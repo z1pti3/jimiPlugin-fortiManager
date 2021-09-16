@@ -25,6 +25,8 @@ class _fortiManager:
         if protocol == "http":
             self.verify = False
         self.base_url = f"{protocol}://{self.host}/jsonrpc"
+        self.working = True
+        self.login()
 
     # Login Method
     def login(self):
@@ -50,7 +52,8 @@ class _fortiManager:
                     "session": self.sessionid
                 }
             login = self.session.post(url=self.base_url, json=payload, verify=self.verify)
-            self.sessionid = login.json()['session']
+            if "session" in login.json():
+                self.sessionid = login.json()['session']
         return self.session
 
     def logout(self):
