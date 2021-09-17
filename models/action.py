@@ -19,7 +19,7 @@ class _fortiManagerConnect(jimi.action._action):
         protocol = jimi.helpers.evalString(self.protocol,{"data" : data["flowData"], "eventData" : data["eventData"], "conductData" : data["conductData"], "persistentData" :  data["persistentData"] })
         adom = jimi.helpers.evalString(self.adom,{"data" : data["flowData"], "eventData" : data["eventData"], "conductData" : data["conductData"], "persistentData" :  data["persistentData"] })
         fortiManagerClass = fortiManager._fortiManager(host,username,password,adom,protocol,self.certificate_verify)
-        if fortiManagerClass:
+        if fortiManagerClass.sessionid:
             data["persistentData"]["fortiManager"] = fortiManager._fortiManager(host,username,password,adom,protocol,self.certificate_verify)
             return { "result" : True, "rc" : 200, "msg" : "FortiManager Object Created" }
         return { "result" : False, "rc" : 403, "msg" : "FortiManager Object Failed to Create" }
@@ -70,7 +70,7 @@ class _fortiManagerGetObject(jimi.action._action):
 
     def doAction(self,data):
         objectType = jimi.helpers.evalString(self.objectType,{"data" : data["flowData"], "eventData" : data["eventData"], "conductData" : data["conductData"], "persistentData" :  data["persistentData"] })
-        objectName = jimi.helpers.evalString(self.objectName,{"data" : data["flowData"], "eventData" : data["eventData"], "conductData" : data["conductData"], "persistentData" :  data["persistentData"] })
+        objectName = jimi.helpers.evalString(self.objectName,{"data" : data["flowData"], "eventData" : data["eventData"], "conductData" : data["conductData"], "persistentData" :  data["persistentData"] }).replace("/","\\/")
         try:
             fortiManagerClass = data["persistentData"]["fortiManager"]
             objectItem = fortiManager.getObject(fortiManagerClass,objectType,objectName)
@@ -85,7 +85,7 @@ class _fortiManagerSetObject(jimi.action._action):
 
     def doAction(self,data):
         objectType = jimi.helpers.evalString(self.objectType,{"data" : data["flowData"], "eventData" : data["eventData"], "conductData" : data["conductData"], "persistentData" :  data["persistentData"] })
-        objectName = jimi.helpers.evalString(self.objectName,{"data" : data["flowData"], "eventData" : data["eventData"], "conductData" : data["conductData"], "persistentData" :  data["persistentData"] })
+        objectName = jimi.helpers.evalString(self.objectName,{"data" : data["flowData"], "eventData" : data["eventData"], "conductData" : data["conductData"], "persistentData" :  data["persistentData"] }).replace("/","\\/")
         objectData = jimi.helpers.evalDict(self.objectData,{"data" : data["flowData"], "eventData" : data["eventData"], "conductData" : data["conductData"], "persistentData" :  data["persistentData"] })
         try:
             fortiManagerClass = data["persistentData"]["fortiManager"]
